@@ -1,0 +1,306 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Gadai Bulgac\Downloads\EconomicEnvironmental.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}12 Jul 2024, 20:59:02
+{txt}
+{com}. 
+. gen loggdp = log(gdp)
+{txt}(5 missing values generated)
+
+{com}. 
+. xtile gdpquartile = gdp, nq(4)
+{txt}
+{com}. 
+. correlate environmental economic
+{txt}(obs=174)
+
+             {c |} enviro~l economic
+{hline 13}{c +}{hline 18}
+environmen~l {c |}{res}   1.0000
+    {txt}economic {c |}{res}   0.6109   1.0000
+
+{txt}
+{com}. scatter environmental economic
+{res}{txt}
+{com}. 
+. correlate environmental gdp
+{txt}(obs=176)
+
+             {c |} enviro~l      gdp
+{hline 13}{c +}{hline 18}
+environmen~l {c |}{res}   1.0000
+         {txt}gdp {c |}{res}   0.6408   1.0000
+
+{txt}
+{com}. scatter environmental gdp
+{res}{txt}
+{com}. 
+. correlate environmental loggdp
+{txt}(obs=176)
+
+             {c |} enviro~l   loggdp
+{hline 13}{c +}{hline 18}
+environmen~l {c |}{res}   1.0000
+      {txt}loggdp {c |}{res}   0.7109   1.0000
+
+{txt}
+{com}. scatter environmental loggdp
+{res}{txt}
+{com}. 
+. correlate gdp economic
+{txt}(obs=171)
+
+             {c |}      gdp economic
+{hline 13}{c +}{hline 18}
+         gdp {c |}{res}   1.0000
+    {txt}economic {c |}{res}   0.7110   1.0000
+
+{txt}
+{com}. scatter gdp economic
+{res}{txt}
+{com}. 
+. correlate loggdp economic
+{txt}(obs=171)
+
+             {c |}   loggdp economic
+{hline 13}{c +}{hline 18}
+      loggdp {c |}{res}   1.0000
+    {txt}economic {c |}{res}   0.7584   1.0000
+
+{txt}
+{com}. scatter loggdp economic
+{res}{txt}
+{com}. 
+. regress environmental economic
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       174
+{txt}{hline 13}{c +}{hline 34}   F(1, 172)       = {res}   102.40
+{txt}       Model {c |} {res} 9940.54333         1  9940.54333   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res}   16696.29       172  97.0714537   {txt}R-squared       ={res}    0.3732
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.3695
+{txt}       Total {c |} {res} 26636.8334       173  153.970135   {txt}Root MSE        =   {res} 9.8525
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}environmen~l{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}economic {c |}{col 14}{res}{space 2} .7314981{col 26}{space 2} .0722859{col 37}{space 1}   10.12{col 46}{space 3}0.000{col 54}{space 4} .5888163{col 67}{space 3} .8741798
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.5152611{col 26}{space 2} 4.375211{col 37}{space 1}   -0.12{col 46}{space 3}0.906{col 54}{space 4} -9.15128{col 67}{space 3} 8.120758
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. regress environmental gdp
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       176
+{txt}{hline 13}{c +}{hline 34}   F(1, 174)       = {res}   121.24
+{txt}       Model {c |} {res} 11048.6439         1  11048.6439   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 15856.8611       174  91.1313856   {txt}R-squared       ={res}    0.4106
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.4073
+{txt}       Total {c |} {res}  26905.505       175  153.745743   {txt}Root MSE        =   {res} 9.5463
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}environmen~l{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}gdp {c |}{col 14}{res}{space 2} .0003434{col 26}{space 2} .0000312{col 37}{space 1}   11.01{col 46}{space 3}0.000{col 54}{space 4} .0002818{col 67}{space 3} .0004049
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 37.47999{col 26}{space 2} .8828445{col 37}{space 1}   42.45{col 46}{space 3}0.000{col 54}{space 4} 35.73753{col 67}{space 3} 39.22246
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. regress gdp economic
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       171
+{txt}{hline 13}{c +}{hline 34}   F(1, 169)       = {res}   172.73
+{txt}       Model {c |} {res} 4.7097e+10         1  4.7097e+10   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 4.6079e+10       169   272656801   {txt}R-squared       ={res}    0.5055
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.5025
+{txt}       Total {c |} {res} 9.3176e+10       170   548095747   {txt}Root MSE        =   {res}  16512
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}         gdp{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}economic {c |}{col 14}{res}{space 2} 1754.068{col 26}{space 2} 133.4617{col 37}{space 1}   13.14{col 46}{space 3}0.000{col 54}{space 4} 1490.601{col 67}{space 3} 2017.534
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-88683.12{col 26}{space 2} 8112.354{col 37}{space 1}  -10.93{col 46}{space 3}0.000{col 54}{space 4}-104697.7{col 67}{space 3}-72668.52
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. regress loggdp economic
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       171
+{txt}{hline 13}{c +}{hline 34}   F(1, 169)       = {res}   228.77
+{txt}       Model {c |} {res} 196.459185         1  196.459185   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 145.133322       169  .858777055   {txt}R-squared       ={res}    0.5751
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.5726
+{txt}       Total {c |} {res} 341.592507       170  2.00936769   {txt}Root MSE        =   {res}  .9267
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      loggdp{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}economic {c |}{col 14}{res}{space 2} .1132882{col 26}{space 2} .0074901{col 37}{space 1}   15.13{col 46}{space 3}0.000{col 54}{space 4} .0985019{col 67}{space 3} .1280744
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 2.020034{col 26}{space 2} .4552804{col 37}{space 1}    4.44{col 46}{space 3}0.000{col 54}{space 4} 1.121265{col 67}{space 3} 2.918803
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. regress environmental loggdp
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       176
+{txt}{hline 13}{c +}{hline 34}   F(1, 174)       = {res}   177.74
+{txt}       Model {c |} {res} 13595.6864         1  13595.6864   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 13309.8185       174  76.4932098   {txt}R-squared       ={res}    0.5053
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.5025
+{txt}       Total {c |} {res}  26905.505       175  153.745743   {txt}Root MSE        =   {res}  8.746
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}environmen~l{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}loggdp {c |}{col 14}{res}{space 2}  6.21736{col 26}{space 2} .4663552{col 37}{space 1}   13.33{col 46}{space 3}0.000{col 54}{space 4} 5.296918{col 67}{space 3} 7.137801
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} -11.6755{col 26}{space 2} 4.162071{col 37}{space 1}   -2.81{col 46}{space 3}0.006{col 54}{space 4}-19.89014{col 67}{space 3}-3.460859
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. regress environmental economic gdp
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       170
+{txt}{hline 13}{c +}{hline 34}   F(2, 167)       = {res}    87.10
+{txt}       Model {c |} {res} 13515.3375         2  6757.66877   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 12956.4022       167  77.5832467   {txt}R-squared       ={res}    0.5106
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.5047
+{txt}       Total {c |} {res} 26471.7397       169  156.637513   {txt}Root MSE        =   {res} 8.8081
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}environmen~l{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}economic {c |}{col 14}{res}{space 2}  .573323{col 26}{space 2} .1013397{col 37}{space 1}    5.66{col 46}{space 3}0.000{col 54}{space 4} .3732511{col 67}{space 3}  .773395
+{txt}{space 9}gdp {c |}{col 14}{res}{space 2} .0001788{col 26}{space 2} .0000411{col 37}{space 1}    4.35{col 46}{space 3}0.000{col 54}{space 4} .0000977{col 67}{space 3}   .00026
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 5.709496{col 26}{space 2} 5.656998{col 37}{space 1}    1.01{col 46}{space 3}0.314{col 54}{space 4}-5.458951{col 67}{space 3} 16.87794
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. regress environmental economic loggdp
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       170
+{txt}{hline 13}{c +}{hline 34}   F(2, 167)       = {res}   106.90
+{txt}       Model {c |} {res} 14862.2588         2  7431.12942   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 11609.4809       167  69.5178497   {txt}R-squared       ={res}    0.5614
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.5562
+{txt}       Total {c |} {res} 26471.7397       169  156.637513   {txt}Root MSE        =   {res} 8.3377
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}environmen~l{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}economic {c |}{col 14}{res}{space 2} .3878861{col 26}{space 2} .1034167{col 37}{space 1}    3.75{col 46}{space 3}0.000{col 54}{space 4} .1837135{col 67}{space 3} .5920588
+{txt}{space 6}loggdp {c |}{col 14}{res}{space 2} 4.406268{col 26}{space 2} .6923434{col 37}{space 1}    6.36{col 46}{space 3}0.000{col 54}{space 4} 3.039394{col 67}{space 3} 5.773141
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-19.04916{col 26}{space 2} 4.328749{col 37}{space 1}   -4.40{col 46}{space 3}0.000{col 54}{space 4}-27.59529{col 67}{space 3}-10.50304
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. regress environmental economic gdpquartile
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       170
+{txt}{hline 13}{c +}{hline 34}   F(2, 167)       = {res}   109.87
+{txt}       Model {c |} {res} 15040.6613         2  7520.33064   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 11431.0785       167  68.4495716   {txt}R-squared       ={res}    0.5682
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.5630
+{txt}       Total {c |} {res} 26471.7397       169  156.637513   {txt}Root MSE        =   {res} 8.2734
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}environmen~l{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}economic {c |}{col 14}{res}{space 2} .4226562{col 26}{space 2} .0969723{col 37}{space 1}    4.36{col 46}{space 3}0.000{col 54}{space 4} .2312066{col 67}{space 3} .6141058
+{txt}{space 1}gdpquartile {c |}{col 14}{res}{space 2} 5.368158{col 26}{space 2} .8116583{col 37}{space 1}    6.61{col 46}{space 3}0.000{col 54}{space 4} 3.765724{col 67}{space 3} 6.970591
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.290824{col 26}{space 2}  4.61361{col 37}{space 1}    0.93{col 46}{space 3}0.354{col 54}{space 4}-4.817692{col 67}{space 3} 13.39934
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. regress environmental economic if gdpquartile == 1
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}        44
+{txt}{hline 13}{c +}{hline 34}   F(1, 42)        = {res}     0.00
+{txt}       Model {c |} {res} .000056365         1  .000056365   {txt}Prob > F        ={res}    0.9990
+{txt}    Residual {c |} {res} 1554.19162        42  37.0045623   {txt}R-squared       ={res}    0.0000
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}   -0.0238
+{txt}       Total {c |} {res} 1554.19167        43  36.1439924   {txt}Root MSE        =   {res} 6.0831
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}environmen~l{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}economic {c |}{col 14}{res}{space 2} .0002057{col 26}{space 2} .1666557{col 37}{space 1}    0.00{col 46}{space 3}0.999{col 54}{space 4}-.3361192{col 67}{space 3} .3365306
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 33.26885{col 26}{space 2} 8.715239{col 37}{space 1}    3.82{col 46}{space 3}0.000{col 54}{space 4} 15.68078{col 67}{space 3} 50.85691
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. regress environmental economic if gdpquartile == 2
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}        40
+{txt}{hline 13}{c +}{hline 34}   F(1, 38)        = {res}     0.46
+{txt}       Model {c |} {res} 31.0571696         1  31.0571696   {txt}Prob > F        ={res}    0.5039
+{txt}    Residual {c |} {res} 2591.55271        38  68.1987555   {txt}R-squared       ={res}    0.0118
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}   -0.0142
+{txt}       Total {c |} {res} 2622.60988        39  67.2464072   {txt}Root MSE        =   {res} 8.2583
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}environmen~l{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}economic {c |}{col 14}{res}{space 2} .1314763{col 26}{space 2} .1948295{col 37}{space 1}    0.67{col 46}{space 3}0.504{col 54}{space 4}-.2629355{col 67}{space 3} .5258881
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 29.26388{col 26}{space 2} 11.06328{col 37}{space 1}    2.65{col 46}{space 3}0.012{col 54}{space 4} 6.867447{col 67}{space 3} 51.66031
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. regress environmental economic if gdpquartile == 3
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}        42
+{txt}{hline 13}{c +}{hline 34}   F(1, 40)        = {res}     8.16
+{txt}       Model {c |} {res} 388.165967         1  388.165967   {txt}Prob > F        ={res}    0.0068
+{txt}    Residual {c |} {res} 1902.01693        40  47.5504231   {txt}R-squared       ={res}    0.1695
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.1487
+{txt}       Total {c |} {res} 2290.18289        41  55.8581193   {txt}Root MSE        =   {res} 6.8957
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}environmen~l{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}economic {c |}{col 14}{res}{space 2} .4713122{col 26}{space 2} .1649594{col 37}{space 1}    2.86{col 46}{space 3}0.007{col 54}{space 4} .1379167{col 67}{space 3} .8047076
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 16.44176{col 26}{space 2} 10.07176{col 37}{space 1}    1.63{col 46}{space 3}0.110{col 54}{space 4}-3.914015{col 67}{space 3} 36.79754
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. regress environmental economic if gdpquartile == 4
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}        44
+{txt}{hline 13}{c +}{hline 34}   F(1, 42)        = {res}    11.26
+{txt}       Model {c |} {res} 1161.38659         1  1161.38659   {txt}Prob > F        ={res}    0.0017
+{txt}    Residual {c |} {res} 4332.37483        42  103.151782   {txt}R-squared       ={res}    0.2114
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.1926
+{txt}       Total {c |} {res} 5493.76142        43  127.761893   {txt}Root MSE        =   {res} 10.156
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}environmen~l{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}economic {c |}{col 14}{res}{space 2} .7639695{col 26}{space 2} .2276806{col 37}{space 1}    3.36{col 46}{space 3}0.002{col 54}{space 4} .3044915{col 67}{space 3} 1.223448
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 2.912793{col 26}{space 2} 16.18101{col 37}{space 1}    0.18{col 46}{space 3}0.858{col 54}{space 4} -29.7418{col 67}{space 3} 35.56738
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. translate EconomicEnvironmental.do EconomicEnvironmentalGDPdo.pdf, translator(txt2pdf) replace
+{txt}{p 0 4 2}
+file {bf}
+EconomicEnvironmentalGDPdo.pdf{rm}
+saved as
+PDF
+format
+{p_end}
+
+{com}. translate EconomicEnvironmental.smcl EconomicEnvironmentalLog.pdf, translator(txt2pdf) replace
+{txt}{p 0 4 2}
+file {bf}
+EconomicEnvironmentalLog.pdf{rm}
+saved as
+PDF
+format
+{p_end}
+
+{com}. 
+. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Gadai Bulgac\Downloads\EconomicEnvironmental.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}12 Jul 2024, 20:59:05
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
